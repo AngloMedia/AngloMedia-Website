@@ -6,6 +6,7 @@ export const site = {
   description:
     "AngloMedia uses the power of English to help corporations, educational institutions, embassies and civic organisations reach Morocco's growing English-speaking markets.",
   email: "kbb@anglomedia.ma",
+  phone: "+212 615 759 248",
   location: "Rabat, Morocco",
 };
 

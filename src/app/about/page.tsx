@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { CallToAction, Eyebrow, GoldRule, PageHero } from "@/components/ui";
+import { CallToAction, Eyebrow, Rule, PageHero } from "@/components/ui";
 
 export const metadata: Metadata = { title: "About" };
 
@@ -33,10 +33,10 @@ export default function AboutPage() {
           <h2 className="mt-4 font-serif text-4xl font-semibold">
             Connecting the English-speaking community
           </h2>
-          <GoldRule />
+          <Rule />
         </div>
-        <div className="space-y-5 text-cream/80">
-          <p className="font-serif text-2xl italic leading-snug text-cream">
+        <div className="space-y-5 text-ink/80">
+          <p className="font-serif text-2xl italic leading-snug text-navy">
             To provide a means of communication to English-speaking residents,
             consumers, professionals, businesses and institutions in the Middle
             East and North Africa (MENA) community.
@@ -49,18 +49,18 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="bg-charcoal">
+      <section className="bg-mist">
         <div className="mx-auto max-w-6xl px-6 py-24">
           <Eyebrow>Who we are</Eyebrow>
           <h2 className="mt-4 font-serif text-4xl font-semibold">Our team</h2>
-          <GoldRule />
+          <Rule />
           <div className="mt-10 grid gap-8 md:grid-cols-3">
             {team.map((member) => (
-              <div key={member.title} className="border-t-2 border-burgundy pt-6">
-                <h3 className="font-serif text-2xl font-semibold text-gold">
+              <div key={member.title} className="border-t-2 border-red pt-6">
+                <h3 className="font-serif text-2xl font-semibold text-navy">
                   {member.title}
                 </h3>
-                <p className="mt-3 text-cream/75">{member.text}</p>
+                <p className="mt-3 text-ink/75">{member.text}</p>
               </div>
             ))}
           </div>
@@ -70,11 +70,11 @@ export default function AboutPage() {
       <section className="mx-auto max-w-6xl px-6 py-24">
         <Eyebrow>What we do</Eyebrow>
         <h2 className="mt-4 font-serif text-4xl font-semibold">How we serve the community</h2>
-        <GoldRule />
-        <ul className="mt-6 grid gap-x-12 gap-y-4 text-cream/80 md:grid-cols-2">
+        <Rule />
+        <ul className="mt-6 grid gap-x-12 gap-y-4 text-ink/80 md:grid-cols-2">
           {commitments.map((item) => (
             <li key={item} className="flex gap-3">
-              <span className="mt-2 h-1.5 w-1.5 shrink-0 bg-gold" />
+              <span className="mt-2 h-1.5 w-1.5 shrink-0 bg-red" />
               {item}
             </li>
           ))}

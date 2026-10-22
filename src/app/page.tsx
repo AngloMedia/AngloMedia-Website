@@ -1,4 +1,4 @@
-import { ButtonLink, CallToAction, Eyebrow, GoldRule } from "@/components/ui";
+import { ButtonLink, CallToAction, Eyebrow, FlagBands, Rule } from "@/components/ui";
 import { clients, services, site } from "@/lib/site";
 
 const audience = [
@@ -12,15 +12,15 @@ export default function Home() {
   return (
     <>
       <section className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--burgundy)_0%,_transparent_55%)] opacity-60" />
+        <FlagBands className="absolute right-0 top-0 hidden h-full w-1/2 opacity-90 md:block" />
         <div className="relative mx-auto max-w-6xl px-6 py-28 md:py-40">
           <Eyebrow>Communications &amp; Public Relations · Rabat, Morocco</Eyebrow>
           <h1 className="mt-6 max-w-4xl font-serif text-5xl font-semibold leading-[1.05] md:text-7xl">
             Your voice in Morocco&apos;s{" "}
-            <span className="italic text-gold">English-speaking</span> future.
+            <span className="italic text-red">English-speaking</span> future.
           </h1>
-          <GoldRule />
-          <p className="max-w-2xl text-lg text-cream/80">{site.description}</p>
+          <Rule />
+          <p className="max-w-2xl text-lg text-ink/80">{site.description}</p>
           <div className="mt-10 flex flex-wrap gap-4">
             <ButtonLink href="/contact">Work with us</ButtonLink>
             <ButtonLink href="/services" variant="outline">
@@ -30,10 +30,10 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="border-y border-gold/20 bg-charcoal">
+      <section className="border-y border-navy/15 bg-mist">
         <div className="mx-auto grid max-w-6xl grid-cols-2 gap-6 px-6 py-10 text-center md:grid-cols-4">
           {clients.map((client) => (
-            <p key={client} className="font-serif text-lg text-cream/90">
+            <p key={client} className="font-serif text-lg text-ink/90">
               {client}
             </p>
           ))}
@@ -45,14 +45,14 @@ export default function Home() {
         <h2 className="mt-4 font-serif text-4xl font-semibold md:text-5xl">
           Communication that opens markets
         </h2>
-        <GoldRule />
-        <div className="mt-12 grid gap-px bg-gold/20 md:grid-cols-2 lg:grid-cols-3">
+        <Rule />
+        <div className="mt-12 grid gap-px bg-navy/10 md:grid-cols-2 lg:grid-cols-3">
           {services.map((service) => (
-            <div key={service.title} className="bg-black p-8 md:p-10">
-              <h3 className="font-serif text-2xl font-semibold text-gold">
+            <div key={service.title} className="bg-white p-8 md:p-10">
+              <h3 className="font-serif text-2xl font-semibold text-navy">
                 {service.title}
               </h3>
-              <p className="mt-3 text-cream/75">{service.summary}</p>
+              <p className="mt-3 text-ink/75">{service.summary}</p>
             </div>
           ))}
         </div>
@@ -63,15 +63,15 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="bg-charcoal">
+      <section className="bg-mist">
         <div className="mx-auto grid max-w-6xl items-center gap-12 px-6 py-24 md:grid-cols-2">
           <div>
             <Eyebrow>Training &amp; Education</Eyebrow>
             <h2 className="mt-4 font-serif text-4xl font-semibold md:text-5xl">
               Building confident communicators
             </h2>
-            <GoldRule />
-            <p className="text-cream/80">
+            <Rule />
+            <p className="text-ink/80">
               Our teachers and trainers strengthen English writing and
               communication skills for employees and students. Our referral
               and certification programme helps qualified candidates find
@@ -81,12 +81,12 @@ export default function Home() {
               <ButtonLink href="/training">Our programmes</ButtonLink>
             </div>
           </div>
-          <div className="border border-gold/30 p-10">
-            <p className="font-serif text-3xl italic leading-snug text-cream">
+          <div className="border border-navy/15 p-10">
+            <p className="font-serif text-3xl italic leading-snug text-navy">
               &ldquo;The right message, in the right language, for the right
               audience.&rdquo;
             </p>
-            <p className="mt-6 text-xs uppercase tracking-[0.3em] text-gold">
+            <p className="mt-6 text-xs uppercase tracking-[0.3em] text-red">
               The AngloMedia approach
             </p>
           </div>
@@ -98,16 +98,16 @@ export default function Home() {
         <h2 className="mt-4 max-w-3xl font-serif text-4xl font-semibold md:text-5xl">
           Morocco&apos;s English-speaking audience is growing
         </h2>
-        <GoldRule />
-        <p className="max-w-2xl text-cream/80">
+        <Rule />
+        <p className="max-w-2xl text-ink/80">
           Across Morocco and the wider MENA region, English-speaking residents,
           consumers and professionals are a fast-growing audience. We help you
           reach them with confidence.
         </p>
         <div className="mt-12 grid gap-8 md:grid-cols-4">
           {audience.map((item) => (
-            <div key={item} className="border-t-2 border-burgundy pt-5">
-              <p className="font-serif text-2xl text-gold">{item}</p>
+            <div key={item} className="border-t-2 border-red pt-5">
+              <p className="font-serif text-2xl text-red">{item}</p>
             </div>
           ))}
         </div>

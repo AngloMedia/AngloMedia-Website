@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
-import { CallToAction, Eyebrow, GoldRule, PageHero } from "@/components/ui";
+import Link from "next/link";
+import { ContactForm } from "@/components/ContactForm";
+import { CallToAction, Eyebrow, Rule, PageHero } from "@/components/ui";
 
 export const metadata: Metadata = { title: "Training" };
 
@@ -7,6 +9,7 @@ const programmes = [
   {
     title: "English Writing for Business",
     audience: "For corporate clients",
+    signup: true,
     text: "Business writing, reports, emails and correspondence in clear, professional English.",
   },
   {
@@ -47,35 +50,62 @@ export default function TrainingPage() {
         <h2 className="mt-4 font-serif text-4xl font-semibold">
           Designed around your organisation
         </h2>
-        <GoldRule />
+        <Rule />
         <div className="mt-10 grid gap-8 md:grid-cols-2">
           {programmes.map((p) => (
-            <div key={p.title} className="border border-gold/25 bg-charcoal p-8 transition-colors hover:border-gold">
-              <p className="text-xs uppercase tracking-[0.2em] text-burgundy-light">
+            <div key={p.title} className="border border-navy/15 bg-mist p-8 transition-colors hover:border-red">
+              <p className="text-xs uppercase tracking-[0.2em] text-red">
                 {p.audience}
               </p>
-              <h3 className="mt-3 font-serif text-2xl font-semibold text-gold">
+              <h3 className="mt-3 font-serif text-2xl font-semibold text-navy">
                 {p.title}
               </h3>
-              <p className="mt-3 text-cream/75">{p.text}</p>
+              <p className="mt-3 text-ink/75">{p.text}</p>
+              {p.signup && (
+                <Link
+                  href="#register"
+                  className="mt-5 inline-block text-sm font-medium uppercase tracking-[0.2em] text-red hover:text-red-dark"
+                >
+                  Register your interest →
+                </Link>
+              )}
             </div>
           ))}
         </div>
-        <p className="mt-12 max-w-2xl text-cream/70">
+        <p className="mt-12 max-w-2xl text-ink/70">
           All programmes can be delivered in person or online, as workshops or
           longer courses, and adapted to your sector and goals.
         </p>
       </section>
 
-      <section className="bg-charcoal">
+      <section id="register" className="scroll-mt-24 bg-navy">
+        <div className="mx-auto grid max-w-6xl gap-12 px-6 py-24 md:grid-cols-[1fr_2fr]">
+          <div>
+            <p className="text-xs uppercase tracking-[0.3em] text-white/70">Sign up</p>
+            <h2 className="mt-4 font-serif text-4xl font-semibold text-white">
+              English Writing for Business
+            </h2>
+            <div className="my-6 h-px w-16 bg-red" />
+            <p className="text-white/80">
+              Leave your email and phone number and we will contact you with
+              course dates, format and fees.
+            </p>
+          </div>
+          <div className="bg-white p-8">
+            <ContactForm programme="English Writing for Business" />
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-mist">
         <div className="mx-auto grid max-w-6xl gap-12 px-6 py-24 md:grid-cols-2">
           <div>
             <Eyebrow>Careers</Eyebrow>
             <h2 className="mt-4 font-serif text-4xl font-semibold">
               Referral &amp; Certification Programme
             </h2>
-            <GoldRule />
-            <p className="text-cream/80">
+            <Rule />
+            <p className="text-ink/80">
               We connect qualified people with English-speaking jobs. Send us
               your CV: we review it, and candidates who complete our
               certification course can receive a letter of referral from
@@ -85,10 +115,10 @@ export default function TrainingPage() {
           <ol className="space-y-6 self-center">
             {steps.map((step, i) => (
               <li key={step} className="flex items-baseline gap-5">
-                <span className="font-serif text-4xl text-burgundy-light">
+                <span className="font-serif text-4xl text-red">
                   {String(i + 1).padStart(2, "0")}
                 </span>
-                <span className="text-lg text-cream/85">{step}</span>
+                <span className="text-lg text-ink/85">{step}</span>
               </li>
             ))}
           </ol>

@@ -17,7 +17,7 @@ Then open http://localhost:3000.
 ## Where to edit things
 
 - **Contact details, tagline, services list:** `src/lib/site.ts`
-- **Colours (black, burgundy, gold):** `src/app/globals.css`
+- **Colours (red, white and blue):** `src/app/globals.css`
 - **Pages:** `src/app/` (`page.tsx` is Home; `about/`, `services/`, `training/`, `contact/`)
 - **Header and footer:** `src/components/`
 

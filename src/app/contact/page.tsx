@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { ContactForm } from "@/components/ContactForm";
-import { Eyebrow, GoldRule, PageHero } from "@/components/ui";
+import { Eyebrow, Rule, PageHero } from "@/components/ui";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = { title: "Contact" };
@@ -17,18 +17,26 @@ export default function ContactPage() {
       <section className="mx-auto grid max-w-6xl gap-16 px-6 py-24 md:grid-cols-[1fr_2fr]">
         <div>
           <Eyebrow>Reach us</Eyebrow>
-          <GoldRule />
-          <dl className="space-y-6 text-cream/80">
+          <Rule />
+          <dl className="space-y-6 text-ink/80">
             <div>
-              <dt className="text-xs uppercase tracking-[0.2em] text-gold">Email</dt>
+              <dt className="text-xs uppercase tracking-[0.2em] text-red">Email</dt>
               <dd className="mt-1">
-                <a href={`mailto:${site.email}`} className="hover:text-gold">
+                <a href={`mailto:${site.email}`} className="hover:text-red">
                   {site.email}
                 </a>
               </dd>
             </div>
             <div>
-              <dt className="text-xs uppercase tracking-[0.2em] text-gold">Location</dt>
+              <dt className="text-xs uppercase tracking-[0.2em] text-red">Phone</dt>
+              <dd className="mt-1">
+                <a href={`tel:${site.phone.replace(/\s/g, "")}`} className="hover:text-red">
+                  {site.phone}
+                </a>
+              </dd>
+            </div>
+            <div>
+              <dt className="text-xs uppercase tracking-[0.2em] text-red">Location</dt>
               <dd className="mt-1">{site.location}</dd>
             </div>
           </dl>

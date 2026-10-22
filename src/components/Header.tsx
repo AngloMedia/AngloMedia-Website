@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { Logo } from "@/components/Logo";
+import { TriStripe } from "@/components/ui";
 import { nav, site } from "@/lib/site";
 
 export function Header() {
@@ -11,7 +12,8 @@ export function Header() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-gold/20 bg-black/90 backdrop-blur">
+    <header className="sticky top-0 z-50 border-b border-navy/15 bg-white/95 backdrop-blur">
+      <TriStripe />
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
         <Link href="/" aria-label={`${site.name} home`}>
           <Logo />
@@ -22,8 +24,8 @@ export function Header() {
             <Link
               key={item.href}
               href={item.href}
-              className={`text-sm uppercase tracking-[0.2em] transition-colors hover:text-gold ${
-                pathname === item.href ? "text-gold" : "text-cream/80"
+              className={`text-sm uppercase tracking-[0.2em] transition-colors hover:text-red ${
+                pathname === item.href ? "text-red" : "text-ink/80"
               }`}
             >
               {item.label}
@@ -33,7 +35,7 @@ export function Header() {
 
         <button
           type="button"
-          className="text-cream md:hidden"
+          className="text-navy md:hidden"
           aria-expanded={open}
           aria-label={open ? "Close menu" : "Open menu"}
           onClick={() => setOpen(!open)}
@@ -45,14 +47,14 @@ export function Header() {
       </div>
 
       {open && (
-        <nav className="border-t border-gold/20 px-6 py-4 md:hidden" aria-label={`${site.name} mobile`}>
+        <nav className="border-t border-navy/15 px-6 py-4 md:hidden" aria-label={`${site.name} mobile`}>
           {nav.map((item) => (
             <Link
               key={item.href}
               href={item.href}
               onClick={() => setOpen(false)}
               className={`block py-3 text-sm uppercase tracking-[0.2em] ${
-                pathname === item.href ? "text-gold" : "text-cream/80"
+                pathname === item.href ? "text-red" : "text-ink/80"
               }`}
             >
               {item.label}

@@ -1,35 +1,43 @@
 @import "tailwindcss";
 
+/* Red, white and blue of the Anglosphere, matched to the AngloMedia logo. */
 :root {
-  --black: #0b0b0b;
-  --charcoal: #161314;
-  --burgundy: #800020;
-  --burgundy-dark: #5c0017;
-  --burgundy-light: #b3203f;
-  --gold: #c9a227;
-  --gold-light: #e2c66b;
-  --cream: #f5efe3;
+  --navy: #13296b;
+  --navy-dark: #0b1c4f;
+  --blue: #0038a8;
+  --red: #c8102e;
+  --red-dark: #a00c24;
+  --ink: #2f2f33;
+  --mist: #f3f5fa;
+  --white: #ffffff;
 }
 
 @theme inline {
-  --color-black: var(--black);
-  --color-charcoal: var(--charcoal);
-  --color-burgundy: var(--burgundy);
-  --color-burgundy-dark: var(--burgundy-dark);
-  --color-burgundy-light: var(--burgundy-light);
-  --color-gold: var(--gold);
-  --color-gold-light: var(--gold-light);
-  --color-cream: var(--cream);
+  --color-navy: var(--navy);
+  --color-navy-dark: var(--navy-dark);
+  --color-blue: var(--blue);
+  --color-red: var(--red);
+  --color-red-dark: var(--red-dark);
+  --color-ink: var(--ink);
+  --color-mist: var(--mist);
   --font-sans: var(--font-inter);
   --font-serif: var(--font-cormorant);
 }
 
 body {
-  background: var(--black);
-  color: var(--cream);
+  background: var(--white);
+  color: var(--ink);
+}
+
+@layer base {
+  h1,
+  h2,
+  h3 {
+    color: var(--navy);
+  }
 }
 
 ::selection {
-  background: var(--burgundy);
-  color: var(--cream);
+  background: var(--navy);
+  color: var(--white);
 }
