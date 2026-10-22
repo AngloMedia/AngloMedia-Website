@@ -1,13 +1,12 @@
 // Central site details. Update these values and they change everywhere on the site.
 export const site = {
   name: "AngloMedia",
-  tagline: "Your voice in Morocco's English-speaking future.",
+  legalName: "AngloMedia Group",
+  tagline: "Communications & public relations",
   description:
-    "AngloMedia is a public relations and communications agency helping corporations, educational institutions, embassies and civic organisations reach Morocco's growing English-speaking markets.",
-  // TODO: replace with the real contact details.
-  email: "contact@example.com",
-  phone: "+212 000 000 000",
-  location: "Morocco",
+    "AngloMedia uses the power of English to help corporations, educational institutions, embassies and civic organisations reach Morocco's growing English-speaking markets.",
+  email: "kbb@anglomedia.ma",
+  location: "Rabat, Morocco",
 };
 
 export const nav = [
@@ -22,41 +21,61 @@ export const services = [
   {
     title: "Public Relations",
     summary:
-      "Strategic PR that builds visibility, credibility and trust with English-speaking audiences across Morocco.",
+      "Strategic PR for institutions and businesses that builds visibility, credibility and trust with English-speaking audiences.",
     points: [
       "Media relations and press releases",
-      "Reputation and stakeholder management",
+      "Reputation and stakeholder communication",
       "Launches, events and campaigns",
     ],
   },
   {
-    title: "Corporate Communications",
+    title: "Direct Marketing",
     summary:
-      "Clear, consistent messaging for organisations entering or expanding in the Moroccan market.",
+      "Reach English-speaking consumers in Morocco directly, backed by well-managed data and real audience insight.",
     points: [
-      "Communication strategy and positioning",
-      "Internal and external messaging",
-      "Crisis communication planning",
+      "Direct marketing to English-speaking consumers",
+      "Database management for commercial clients",
+      "Surveys and market research",
     ],
   },
   {
-    title: "Content Creation",
+    title: "Copywriting & Content",
     summary:
-      "Compelling English-language content that speaks to your audience and reflects your brand.",
+      "Compelling English-language copy and content that speaks to your audience and reflects your brand.",
     points: [
-      "Website, brochure and report copy",
-      "Articles, newsletters and social media",
+      "Copywriting for commercial clients",
+      "Website, social media and newsletter content",
       "Speeches and presentations",
     ],
   },
   {
-    title: "Editing & Proofreading",
+    title: "Editing & Corporate Publications",
     summary:
-      "Polished, professional English for every document you publish.",
+      "Polished, professional English for every document your organisation publishes.",
     points: [
-      "Copy editing and proofreading",
-      "Academic and institutional documents",
-      "Translation review and localisation",
+      "Brochures and annual reports",
+      "Corporate communications",
+      "Editing and proofreading",
+    ],
+  },
+  {
+    title: "Business Promotion",
+    summary:
+      "Introducing entrepreneurs, small businesses and new opportunities to the English-speaking community.",
+    points: [
+      "Promoting entrepreneurs and small businesses in Morocco",
+      "Business profiles and introductions",
+      "Showcasing business opportunities",
+    ],
+  },
+  {
+    title: "Publishing",
+    summary:
+      "Special-interest articles and in-depth stories for English-speaking readers across the MENA region.",
+    points: [
+      "Culture and business features",
+      "Technology, politics and lifestyle stories",
+      "In-depth news and analysis",
     ],
   },
 ];

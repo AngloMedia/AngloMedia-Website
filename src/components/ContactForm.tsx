@@ -1,6 +1,6 @@
 "use client";
 
-import { site } from "@/lib/site";
+import { services, site } from "@/lib/site";
 
 const fieldClass =
   "w-full border border-gold/30 bg-charcoal px-4 py-3 text-cream placeholder:text-cream/40 focus:border-gold focus:outline-none";
@@ -33,11 +33,11 @@ export function ContactForm() {
       <label className="block">
         <span className="text-xs uppercase tracking-[0.2em] text-gold">I&apos;m interested in</span>
         <select name="interest" className={`${fieldClass} mt-2`}>
-          <option>Public Relations</option>
-          <option>Corporate Communications</option>
-          <option>Content Creation</option>
-          <option>Editing &amp; Proofreading</option>
+          {services.map((s) => (
+            <option key={s.title}>{s.title}</option>
+          ))}
           <option>Training &amp; Education</option>
+          <option>Career Referral &amp; Certification</option>
           <option>Something else</option>
         </select>
       </label>

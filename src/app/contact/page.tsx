@@ -28,10 +28,6 @@ export default function ContactPage() {
               </dd>
             </div>
             <div>
-              <dt className="text-xs uppercase tracking-[0.2em] text-gold">Phone</dt>
-              <dd className="mt-1">{site.phone}</dd>
-            </div>
-            <div>
               <dt className="text-xs uppercase tracking-[0.2em] text-gold">Location</dt>
               <dd className="mt-1">{site.location}</dd>
             </div>

@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
+import { Logo } from "@/components/Logo";
 import { nav, site } from "@/lib/site";
 
 export function Header() {
@@ -12,9 +13,8 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 border-b border-gold/20 bg-black/90 backdrop-blur">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-        <Link href="/" className="font-serif text-2xl font-semibold tracking-wide">
-          <span className="text-cream">Anglo</span>
-          <span className="text-gold">Media</span>
+        <Link href="/" aria-label={`${site.name} home`}>
+          <Logo />
         </Link>
 
         <nav className="hidden gap-8 md:flex" aria-label="Main">

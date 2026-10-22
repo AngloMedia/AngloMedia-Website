@@ -18,7 +18,7 @@ const cormorant = Cormorant_Garamond({
 
 export const metadata: Metadata = {
   title: {
-    default: `${site.name} | PR & Communications in Morocco`,
+    default: `${site.name} | Communications & Public Relations in Morocco`,
     template: `%s | ${site.name}`,
   },
   description: site.description,

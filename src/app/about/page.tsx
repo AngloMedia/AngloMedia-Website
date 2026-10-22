@@ -3,68 +3,82 @@ import { CallToAction, Eyebrow, GoldRule, PageHero } from "@/components/ui";
 
 export const metadata: Metadata = { title: "About" };
 
-const values = [
-  {
-    title: "Local insight",
-    text: "We understand Morocco's culture, institutions and media landscape, and how English-speaking audiences here are growing.",
-  },
-  {
-    title: "English expertise",
-    text: "Native-level English writing, editing and communication delivered to an international standard.",
-  },
-  {
-    title: "Trusted partnership",
-    text: "We work closely with every client, from multinational firms to embassies and universities, with discretion and care.",
-  },
+const commitments = [
+  "Public relations for institutions and businesses",
+  "Promoting new businesses and business opportunities",
+  "Helping people find English-speaking jobs",
+  "Referral letters and certification for job seekers",
+  "Surveys and audience research",
+  "In-depth articles on culture, religion, technology, politics and lifestyles",
+];
+
+const team = [
+  { title: "PR professionals", text: "Building reputations and opening doors for institutions and businesses." },
+  { title: "Writers", text: "Creating and editing clear, compelling English for every audience." },
+  { title: "Teachers & trainers", text: "Strengthening the English communication skills of students and employees." },
 ];
 
 export default function AboutPage() {
   return (
     <>
       <PageHero
-        eyebrow="About AngloMedia"
-        title="Connecting organisations with English-speaking Morocco"
-        intro="AngloMedia helps corporate clients, educational institutions, embassies and civic organisations expand their reach in Morocco's fast-growing English-speaking markets."
+        eyebrow="About AngloMedia Group"
+        title="The power of English, working for you"
+        intro="AngloMedia Group is a team of dedicated public relations professionals, writers, teachers and trainers based in Rabat, Morocco. We use the power of English to expand your customer base and enhance your communication skills."
       />
 
       <section className="mx-auto grid max-w-6xl gap-12 px-6 py-24 md:grid-cols-2">
         <div>
-          <Eyebrow>Our story</Eyebrow>
-          <h2 className="mt-4 font-serif text-4xl font-semibold">Who we are</h2>
+          <Eyebrow>Our mission</Eyebrow>
+          <h2 className="mt-4 font-serif text-4xl font-semibold">
+            Connecting the English-speaking community
+          </h2>
           <GoldRule />
         </div>
         <div className="space-y-5 text-cream/80">
-          {/* TODO: replace with AngloMedia's own story. */}
-          <p>
-            English is rapidly becoming a language of business, education and
-            diplomacy in Morocco. AngloMedia was founded to help organisations
-            make the most of that shift, with communication that is clear,
-            credible and culturally aware.
+          <p className="font-serif text-2xl italic leading-snug text-cream">
+            To provide a means of communication to English-speaking residents,
+            consumers, professionals, businesses and institutions in the Middle
+            East and North Africa (MENA) community.
           </p>
           <p>
-            We bring together public relations, content creation, editing and
-            training under one roof, so our clients can speak with confidence
-            to the audiences that matter most.
+            We connect people with opportunities: businesses with new
+            customers, institutions with their audiences, and talented
+            employees with the jobs that suit them.
           </p>
         </div>
       </section>
 
       <section className="bg-charcoal">
         <div className="mx-auto max-w-6xl px-6 py-24">
-          <Eyebrow>What sets us apart</Eyebrow>
-          <h2 className="mt-4 font-serif text-4xl font-semibold">Our values</h2>
+          <Eyebrow>Who we are</Eyebrow>
+          <h2 className="mt-4 font-serif text-4xl font-semibold">Our team</h2>
           <GoldRule />
           <div className="mt-10 grid gap-8 md:grid-cols-3">
-            {values.map((value) => (
-              <div key={value.title} className="border-t-2 border-burgundy pt-6">
+            {team.map((member) => (
+              <div key={member.title} className="border-t-2 border-burgundy pt-6">
                 <h3 className="font-serif text-2xl font-semibold text-gold">
-                  {value.title}
+                  {member.title}
                 </h3>
-                <p className="mt-3 text-cream/75">{value.text}</p>
+                <p className="mt-3 text-cream/75">{member.text}</p>
               </div>
             ))}
           </div>
         </div>
+      </section>
+
+      <section className="mx-auto max-w-6xl px-6 py-24">
+        <Eyebrow>What we do</Eyebrow>
+        <h2 className="mt-4 font-serif text-4xl font-semibold">How we serve the community</h2>
+        <GoldRule />
+        <ul className="mt-6 grid gap-x-12 gap-y-4 text-cream/80 md:grid-cols-2">
+          {commitments.map((item) => (
+            <li key={item} className="flex gap-3">
+              <span className="mt-2 h-1.5 w-1.5 shrink-0 bg-gold" />
+              {item}
+            </li>
+          ))}
+        </ul>
       </section>
 
       <CallToAction />

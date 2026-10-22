@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Logo } from "@/components/Logo";
 import { nav, site } from "@/lib/site";
 
 export function Footer() {
@@ -6,10 +7,7 @@ export function Footer() {
     <footer className="border-t border-gold/20 bg-charcoal">
       <div className="mx-auto grid max-w-6xl gap-10 px-6 py-12 md:grid-cols-3">
         <div>
-          <p className="font-serif text-2xl font-semibold">
-            Anglo<span className="text-gold">Media</span>
-          </p>
-          <p className="mt-3 text-sm text-cream/70">{site.tagline}</p>
+          <Logo withTagline />
         </div>
         <nav aria-label="Footer">
           <p className="text-xs uppercase tracking-[0.2em] text-gold">Explore</p>
@@ -31,13 +29,12 @@ export function Footer() {
                 {site.email}
               </a>
             </li>
-            <li>{site.phone}</li>
             <li>{site.location}</li>
           </ul>
         </div>
       </div>
       <div className="border-t border-gold/10 py-6 text-center text-xs text-cream/50">
-        © <CopyrightYear /> {site.name}. All rights reserved.
+        © <CopyrightYear /> {site.legalName}. All rights reserved.
       </div>
     </footer>
   );
