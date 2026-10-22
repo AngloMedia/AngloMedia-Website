@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Logo } from "@/components/Logo";
+import { FullLogo } from "@/components/Logo";
 import { nav, site } from "@/lib/site";
 
 export function Footer() {
@@ -7,7 +7,7 @@ export function Footer() {
     <footer className="border-t border-navy/15 bg-mist">
       <div className="mx-auto grid max-w-6xl gap-10 px-6 py-12 md:grid-cols-3">
         <div>
-          <Logo withTagline />
+          <FullLogo className="h-auto w-56" />
         </div>
         <nav aria-label="Footer">
           <p className="text-xs uppercase tracking-[0.2em] text-red">Explore</p>
