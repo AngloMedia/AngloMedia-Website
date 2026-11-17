@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { CallToAction, PageHero } from "@/components/ui";
+import theatre from "../../../public/images/grand-theatre-interior.jpg";
 import { services } from "@/lib/site";
 
 export const metadata: Metadata = { title: "Services" };
@@ -39,6 +41,23 @@ export default function ServicesPage() {
               </ul>
             </div>
           ))}
+        </div>
+      </section>
+
+      <section className="relative bg-navy-dark">
+        <Image
+          src={theatre}
+          alt="Interior of the Grand Théâtre de Rabat, with an audience facing a lit stage"
+          placeholder="blur"
+          className="h-[360px] w-full object-cover opacity-80 md:h-[460px]"
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 flex items-end">
+          <div className="mx-auto w-full max-w-6xl px-6 pb-10">
+            <p className="max-w-xl font-serif text-3xl font-semibold text-white md:text-4xl">
+              Putting your message in front of the right audience.
+            </p>
+          </div>
         </div>
       </section>
 

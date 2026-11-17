@@ -70,6 +70,16 @@ export const services = [
     ],
   },
   {
+    title: "Government Contracts & Grants",
+    summary:
+      "Helping Moroccan companies and non-profits compete for U.S. government contracts and grant funding.",
+    points: [
+      "SAM.gov registration for procurement and grants",
+      "Grant research and proposal writing",
+      "Proposal editing and compliance review",
+    ],
+  },
+  {
     title: "Publishing",
     summary:
       "Special-interest articles and in-depth stories for English-speaking readers across the MENA region.",

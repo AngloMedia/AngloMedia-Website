@@ -1,4 +1,7 @@
+import Image from "next/image";
+import Link from "next/link";
 import { ButtonLink, CallToAction, Eyebrow, FlagBands, Rule } from "@/components/ui";
+import portrait from "../../public/images/barrett-bilali-portrait.jpg";
 import { clients, services, site } from "@/lib/site";
 
 const audience = [
@@ -46,7 +49,7 @@ export default function Home() {
           Communication that opens markets
         </h2>
         <Rule />
-        <div className="mt-12 grid gap-px bg-navy/10 md:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-12 grid gap-px bg-navy/10 md:grid-cols-2 lg:grid-cols-4">
           {services.map((service) => (
             <div key={service.title} className="bg-white p-8 md:p-10">
               <h3 className="font-serif text-2xl font-semibold text-navy">
@@ -55,6 +58,17 @@ export default function Home() {
               <p className="mt-3 text-ink/75">{service.summary}</p>
             </div>
           ))}
+          <Link href="/training" className="group bg-navy p-8 md:p-10">
+            <h3 className="font-serif text-2xl font-semibold text-white">
+              Training &amp; Education
+            </h3>
+            <p className="mt-3 text-white/80">
+              English writing and communication skills for teams and students.
+            </p>
+            <p className="mt-4 text-sm uppercase tracking-[0.2em] text-white group-hover:underline">
+              Our programmes →
+            </p>
+          </Link>
         </div>
         <div className="mt-10">
           <ButtonLink href="/services" variant="outline">
@@ -110,6 +124,35 @@ export default function Home() {
               <p className="font-serif text-2xl text-red">{item}</p>
             </div>
           ))}
+        </div>
+      </section>
+
+      <section className="bg-mist">
+        <div className="mx-auto grid max-w-6xl items-center gap-12 px-6 py-24 md:grid-cols-[280px_1fr]">
+          <Image
+            src={portrait}
+            alt="K. Barrett Bilali, founder of AngloMedia Group"
+            placeholder="blur"
+            className="w-56 border-b-4 border-red md:w-full"
+            sizes="280px"
+          />
+          <div>
+            <Eyebrow>Meet the founder</Eyebrow>
+            <p className="mt-4 font-serif text-3xl italic leading-snug text-navy md:text-4xl">
+              &ldquo;I founded AngloMedia because I saw how quickly English was
+              becoming a language of opportunity in Morocco.&rdquo;
+            </p>
+            <p className="mt-6 text-ink/80">
+              <strong className="text-navy">K. Barrett Bilali</strong>: journalist,
+              author, CELTA-certified English teacher, and a New Yorker who has
+              called Morocco home for eleven years.
+            </p>
+            <div className="mt-8">
+              <ButtonLink href="/about" variant="outline">
+                Read Barrett&apos;s story
+              </ButtonLink>
+            </div>
+          </div>
         </div>
       </section>
 
