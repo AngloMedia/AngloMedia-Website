@@ -15,7 +15,7 @@ const highlights = [
   { value: "35+", label: "years in business & media" },
   { value: "11", label: "years in Morocco" },
   { value: "CELTA", label: "certified, London" },
-  { value: "3", label: "languages: English, French, Spanish" },
+  { value: "4", label: "languages: English, French, Spanish, Arabic" },
 ];
 
 const commitments = [
@@ -136,8 +136,8 @@ export default function AboutPage() {
           <div className="mt-16 grid items-center gap-12 md:grid-cols-[1.6fr_1fr]">
             <div className="space-y-5 text-lg leading-relaxed text-ink/85 md:order-1">
               <p>
-                I speak English, French and Spanish, but I write in English.
-                That&apos;s my craft.
+                I&apos;m fluent in English, French and Spanish and proficient in
+                Arabic, but I write in English. That&apos;s my craft.
               </p>
               <p>
                 When I&apos;m not at my desk, you&apos;ll probably find me behind the
