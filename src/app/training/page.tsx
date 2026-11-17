@@ -9,7 +9,7 @@ const programmes = [
   {
     title: "English Writing for Business",
     audience: "For corporate clients",
-    signup: true,
+    link: { href: "#register", label: "Register your interest" },
     text: "Business writing, reports, emails and correspondence in clear, professional English.",
   },
   {
@@ -52,6 +52,27 @@ export default function TrainingPage() {
         </h2>
         <Rule />
         <div className="mt-10 grid gap-8 md:grid-cols-2">
+          <Link
+            href="/training/theatrical-english"
+            className="group grid gap-6 bg-navy p-8 text-white md:col-span-2 md:grid-cols-[1fr_auto] md:items-center md:p-10"
+          >
+            <div>
+              <p className="text-xs uppercase tracking-[0.2em] text-white/70">
+                For students aged 10–19 · New
+              </p>
+              <h3 className="mt-3 font-serif text-3xl font-semibold text-white">
+                Theatrical English
+              </h3>
+              <p className="mt-3 max-w-2xl text-white/85">
+                Students learn English through acting, movement and play, using
+                drama and theatre games to build the confidence to express
+                themselves.
+              </p>
+            </div>
+            <span className="text-sm font-medium uppercase tracking-[0.2em] text-white group-hover:underline">
+              Discover the programme →
+            </span>
+          </Link>
           {programmes.map((p) => (
             <div key={p.title} className="border border-navy/15 bg-mist p-8 transition-colors hover:border-red">
               <p className="text-xs uppercase tracking-[0.2em] text-red">
@@ -61,12 +82,12 @@ export default function TrainingPage() {
                 {p.title}
               </h3>
               <p className="mt-3 text-ink/75">{p.text}</p>
-              {p.signup && (
+              {p.link && (
                 <Link
-                  href="#register"
+                  href={p.link.href}
                   className="mt-5 inline-block text-sm font-medium uppercase tracking-[0.2em] text-red hover:text-red-dark"
                 >
-                  Register your interest →
+                  {p.link.label} →
                 </Link>
               )}
             </div>

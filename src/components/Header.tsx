@@ -10,6 +10,8 @@ import { nav, site } from "@/lib/site";
 export function Header() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const isActive = (href: string) =>
+    href === "/" ? pathname === "/" : pathname.startsWith(href);
 
   return (
     <header className="sticky top-0 z-50 border-b border-navy/15 bg-white/95 backdrop-blur">
@@ -25,7 +27,7 @@ export function Header() {
               key={item.href}
               href={item.href}
               className={`text-sm uppercase tracking-[0.2em] transition-colors hover:text-red ${
-                pathname === item.href ? "text-red" : "text-ink/80"
+                isActive(item.href) ? "text-red" : "text-ink/80"
               }`}
             >
               {item.label}
@@ -54,7 +56,7 @@ export function Header() {
               href={item.href}
               onClick={() => setOpen(false)}
               className={`block py-3 text-sm uppercase tracking-[0.2em] ${
-                pathname === item.href ? "text-red" : "text-ink/80"
+                isActive(item.href) ? "text-red" : "text-ink/80"
               }`}
             >
               {item.label}
