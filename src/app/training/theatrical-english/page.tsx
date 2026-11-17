@@ -19,12 +19,23 @@ const activities = [
 const facts = [
   { label: "Who", value: "Ages 10–19", text: "Primary, middle and high school students" },
   { label: "When", value: "September – June", text: "One full academic year" },
-  { label: "Where", value: "Salé", text: "Classes currently running at English Time" },
+  { label: "Where", value: "Salé", text: "Classes currently running at Englishtime" },
 ];
 
-// Add videos here. YouTube is recommended (an unlisted video works): use the
-// ID from the link, e.g. "abc123XYZ" from youtube.com/watch?v=abc123XYZ.
-const videos: { title: string; youtubeId: string }[] = [];
+// Add videos here: paste the Instagram post/reel link or a YouTube link.
+const videos: { title: string; url: string }[] = [];
+
+// Turns an Instagram or YouTube link into an embeddable player address.
+function embed(url: string) {
+  const insta = url.match(/instagram\.com\/(?:[\w.]+\/)?(p|reel|reels|tv)\/([\w-]+)/);
+  if (insta) {
+    const kind = insta[1] === "reels" ? "reel" : insta[1];
+    return { src: `https://www.instagram.com/${kind}/${insta[2]}/embed`, vertical: true };
+  }
+  const yt = url.match(/(?:youtu\.be\/|v=|shorts\/|embed\/)([\w-]{11})/);
+  if (yt) return { src: `https://www.youtube-nocookie.com/embed/${yt[1]}`, vertical: false };
+  return null;
+}
 
 export default function TheatricalEnglishPage() {
   const whatsappHref = `https://wa.me/${site.whatsapp}?text=${encodeURIComponent(
@@ -91,20 +102,24 @@ export default function TheatricalEnglishPage() {
           <Eyebrow>See it in action</Eyebrow>
           <h2 className="mt-4 font-serif text-4xl font-semibold">Our students on stage</h2>
           <Rule />
-          <div className="mt-10 grid gap-8 md:grid-cols-2">
-            {videos.map((v) => (
-              <figure key={v.youtubeId}>
-                <iframe
-                  src={`https://www.youtube-nocookie.com/embed/${v.youtubeId}`}
-                  title={v.title}
-                  loading="lazy"
-                  allow="accelerometer; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                  className="aspect-video w-full"
-                />
-                <figcaption className="mt-3 text-ink/75">{v.title}</figcaption>
-              </figure>
-            ))}
+          <div className="mt-10 grid items-start gap-8 sm:grid-cols-2 lg:grid-cols-3">
+            {videos.map((v) => {
+              const player = embed(v.url);
+              if (!player) return null;
+              return (
+                <figure key={v.url}>
+                  <iframe
+                    src={player.src}
+                    title={v.title}
+                    loading="lazy"
+                    allow="autoplay; encrypted-media; picture-in-picture; clipboard-write"
+                    allowFullScreen
+                    className={`w-full border border-navy/15 bg-white ${player.vertical ? "h-[640px]" : "aspect-video"}`}
+                  />
+                  <figcaption className="mt-3 text-ink/75">{v.title}</figcaption>
+                </figure>
+              );
+            })}
           </div>
         </section>
       )}
