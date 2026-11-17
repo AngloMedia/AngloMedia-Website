@@ -19,7 +19,6 @@ const activities = [
 const facts = [
   { label: "Who", value: "Ages 10–19", text: "Primary, middle and high school students" },
   { label: "When", value: "September – June", text: "One full academic year" },
-  // TODO: confirm the venue name and city spelling.
   { label: "Where", value: "Salé", text: "Classes currently running at English Time" },
 ];
 
