@@ -23,7 +23,12 @@ const facts = [
 ];
 
 // Add videos here: paste the Instagram post/reel link or a YouTube link.
-const videos: { title: string; url: string }[] = [];
+const videos: { title: string; url: string }[] = [
+  {
+    title: "Theatrical English students at Englishtime, Salé",
+    url: "https://www.instagram.com/p/De83eOekV4t/",
+  },
+];
 
 // Turns an Instagram or YouTube link into an embeddable player address.
 function embed(url: string) {
