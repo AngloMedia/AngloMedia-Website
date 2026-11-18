@@ -4,6 +4,7 @@ import portrait from "../../../public/images/barrett-bilali-portrait.jpg";
 import casablanca from "../../../public/images/barrett-bilali-casablanca.jpg";
 import rabat from "../../../public/images/rabat-grand-theatre.jpg";
 import { CallToAction, Eyebrow, Rule, PageHero } from "@/components/ui";
+import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "About",
@@ -68,7 +69,9 @@ export default function AboutPage() {
         <div className="mx-auto max-w-6xl px-6 py-24">
           <Eyebrow>Meet the founder</Eyebrow>
           <h2 className="mt-4 font-serif text-4xl font-semibold md:text-5xl">
-            Hello, I&apos;m K. Barrett Bilali
+            Hello,
+            <br className="md:hidden" /> I&apos;m{" "}
+            <span className="whitespace-nowrap">K. Barrett Bilali</span>
           </h2>
           <Rule />
 
@@ -138,6 +141,15 @@ export default function AboutPage() {
               <p>
                 I&apos;m fluent in English, French and Spanish and proficient in
                 Arabic, but I write in English. That&apos;s my craft.
+                {site.substack && (
+                  <>
+                    {" "}You can read my latest writing on{" "}
+                    <a href={site.substack} className="text-red underline hover:text-red-dark">
+                      my Substack
+                    </a>
+                    .
+                  </>
+                )}
               </p>
               <p>
                 When I&apos;m not at my desk, you&apos;ll probably find me behind the

@@ -2,7 +2,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { ButtonLink, CallToAction, Eyebrow, FlagBands, Rule } from "@/components/ui";
 import portrait from "../../public/images/barrett-bilali-portrait.jpg";
+import { PostList } from "@/components/PostList";
 import { clients, services, site } from "@/lib/site";
+import { getSubstackPosts } from "@/lib/substack";
 
 const audience = [
   "English-speaking",
@@ -11,7 +13,9 @@ const audience = [
   "Growing job opportunities",
 ];
 
-export default function Home() {
+export default async function Home() {
+  const posts = await getSubstackPosts(3);
+
   return (
     <>
       <section className="relative overflow-hidden">
@@ -155,6 +159,24 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {posts.length > 0 && (
+        <section className="mx-auto max-w-6xl px-6 py-24">
+          <Eyebrow>From the blog</Eyebrow>
+          <h2 className="mt-4 font-serif text-4xl font-semibold md:text-5xl">
+            Latest writing
+          </h2>
+          <Rule />
+          <div className="mt-10">
+            <PostList posts={posts} />
+          </div>
+          <div className="mt-12">
+            <ButtonLink href="/blog" variant="outline">
+              All articles
+            </ButtonLink>
+          </div>
+        </section>
+      )}
 
       <CallToAction />
     </>

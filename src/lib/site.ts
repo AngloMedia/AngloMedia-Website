@@ -10,6 +10,9 @@ export const site = {
   // Same number, digits only, for WhatsApp links.
   whatsapp: "212615759248",
   location: "Rabat, Morocco",
+  // Barrett's Substack address, e.g. "https://name.substack.com". Leave empty
+  // to hide the blog.
+  substack: "",
 };
 
 export const nav = [
@@ -17,6 +20,7 @@ export const nav = [
   { href: "/about", label: "About" },
   { href: "/services", label: "Services" },
   { href: "/training", label: "Training" },
+  ...(site.substack ? [{ href: "/blog", label: "Blog" }] : []),
   { href: "/contact", label: "Contact" },
 ];
 

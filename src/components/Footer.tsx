@@ -35,6 +35,13 @@ export function Footer() {
               </a>
             </li>
             <li>{site.location}</li>
+            {site.substack && (
+              <li>
+                <a href={site.substack} className="hover:text-red">
+                  Substack
+                </a>
+              </li>
+            )}
           </ul>
         </div>
       </div>
