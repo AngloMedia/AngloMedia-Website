@@ -12,7 +12,7 @@ export const site = {
   location: "Rabat, Morocco",
   // Barrett's Substack address, e.g. "https://name.substack.com". Leave empty
   // to hide the blog.
-  substack: "",
+  substack: "https://kbarrettbilali.substack.com",
 };
 
 export const nav = [
