@@ -31,7 +31,23 @@ export default async function BlogPage() {
           </p>
         )}
         {site.substack && (
-          <div className="mt-16 flex flex-wrap gap-4 border-t border-navy/15 pt-10">
+          <div className="mt-16 grid gap-10 border-t border-navy/15 pt-12 md:grid-cols-2 md:items-center">
+            <div>
+              <h2 className="font-serif text-3xl font-semibold">Get new articles by email</h2>
+              <p className="mt-3 text-ink/80">
+                Subscribe for free and new posts arrive straight in your inbox.
+              </p>
+            </div>
+            <iframe
+              src={`${site.substack.replace(/\/$/, "")}/embed`}
+              title="Subscribe to K. Barrett Bilali on Substack"
+              loading="lazy"
+              className="h-[320px] w-full border border-navy/15 bg-white"
+            />
+          </div>
+        )}
+        {site.substack && (
+          <div className="mt-10 flex flex-wrap gap-4">
             <ButtonLink href={`${site.substack.replace(/\/$/, "")}/subscribe`}>
               Subscribe for free
             </ButtonLink>

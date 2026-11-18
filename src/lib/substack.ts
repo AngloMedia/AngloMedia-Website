@@ -29,24 +29,37 @@ function decode(text: string) {
 }
 
 // Latest posts from Barrett's Substack RSS feed, refreshed every few hours.
-// Returns an empty list if no Substack is set or the feed can't be read.
+// Returns an empty list if no Substack is set or the feed can't be read; a
+// failed read is retried after a few minutes rather than hours.
 export async function getSubstackPosts(limit = 12): Promise<Post[]> {
   "use cache";
-  cacheLife("hours");
-  if (!site.substack) return [];
+  if (!site.substack) {
+    cacheLife("max");
+    return [];
+  }
 
   try {
-    const res = await fetch(`${site.substack.replace(/\/$/, "")}/feed`);
-    if (!res.ok) return [];
+    const res = await fetch(`${site.substack.replace(/\/$/, "")}/feed`, {
+      headers: {
+        "User-Agent": "Mozilla/5.0 (compatible; AngloMediaWebsite/1.0; +https://anglomedia.ma)",
+        Accept: "application/rss+xml, application/xml;q=0.9, */*;q=0.8",
+      },
+    });
+    if (!res.ok) throw new Error(`Substack feed returned ${res.status}`);
     const xml = await res.text();
-    return [...xml.matchAll(/<item>([\s\S]*?)<\/item>/g)].slice(0, limit).map(([, item]) => ({
+    const posts = [...xml.matchAll(/<item>([\s\S]*?)<\/item>/g)].slice(0, limit).map(([, item]) => ({
       title: decode(tag(item, "title")),
       link: decode(tag(item, "link")),
       date: new Date(tag(item, "pubDate")).toISOString(),
       summary: decode(tag(item, "description")),
       image: item.match(/<enclosure[^>]*url="([^"]+)"/)?.[1],
     }));
-  } catch {
+    if (posts.length) cacheLife("hours");
+    else cacheLife("minutes");
+    return posts;
+  } catch (error) {
+    console.error("Could not read the Substack feed:", error);
+    cacheLife("minutes");
     return [];
   }
 }
